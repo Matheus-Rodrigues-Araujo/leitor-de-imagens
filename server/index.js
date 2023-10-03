@@ -11,14 +11,14 @@ const app = express();
 const port = process.env.PORT || 27017;
 
 // Configuração do MongoDB
-mongoose.connect('mongodb://localhost/nomeDoSeuBancoDeDados', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const placaSchema = new mongoose.Schema({
     numero: String,
     cidade: String,
     dataHora: { type: Date, default: Date.now }
   });
-  
+
 // Verificar se a coleção 'Placa' existe, se não, criar
 mongoose.connection.on('open', function() {
     mongoose.connection.db.listCollections({name: 'Placa'})
