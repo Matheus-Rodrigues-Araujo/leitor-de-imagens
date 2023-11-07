@@ -1,9 +1,5 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-
-function App() {
-  
-  return (
+export default function CadastroPlaca(){
+    return (
     <div className='main' >
       <form className='form-cadastro-placa' >
         <h2>Cadastro de placa</h2>
@@ -23,7 +19,5 @@ function App() {
 
       </form>
     </div>
-  );
+    )
 }
-
-export default App;

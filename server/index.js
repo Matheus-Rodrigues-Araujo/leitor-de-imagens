@@ -1,23 +1,17 @@
-// index.js
-
 const express = require('express');
 const mongoose = require('mongoose');
 const multer = require('multer');
 const Tesseract = require('tesseract.js');
 const PDFDocument = require('pdfkit');
 const fs = require('fs');
+const placaSchema = require('../server/models/Placa')
 
 const app = express();
-const port = process.env.PORT || 27017;
+const port = process.env.PORT || 4000;
+app.use(express.json());
 
 // Configuração do MongoDB
 mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
-
-const placaSchema = new mongoose.Schema({
-    numero: String,
-    cidade: String,
-    dataHora: { type: Date, default: Date.now }
-  });
 
 // Verificar se a coleção 'Placa' existe, se não, criar
 mongoose.connection.on('open', function() {
@@ -32,8 +26,6 @@ mongoose.connection.on('open', function() {
   const Placa = mongoose.model('Placa', placaSchema);
 
 const upload = multer({ dest: 'uploads/' });
-
-app.use(express.json());
 
 app.post('/cadastroPlaca', upload.single('imagem'), async (req, res) => {
   try {

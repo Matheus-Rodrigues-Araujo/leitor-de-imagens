@@ -1,38 +1,64 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300&family=Mulish&family=Nunito+Sans:wght@200&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body{
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: rgb(9, 9, 9);
+  font-family: 'Inter', sans-serif;
+}
+
+.form-cadastro-placa{
+  border: 1px solid white;
+  border-radius: .5rem;
+  display: grid;
+  min-height: 45vh;
+  margin-inline: auto;
+  margin-top: 50px;
+  padding: 10px;
+  width: 450px;
+  background-color: rgb(37, 34, 34);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.form-cadastro-placa h2{
+  margin-top: 20px;
+  text-align: center;
+  font-size: 30px;
+  color: rgb(255, 0, 51);
+  text-shadow: 2px 0px 1px rgb(254, 253, 253);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.form-cadastro-placa label{
+  font-size: 20px;
+  display: flex;
+  
+  flex-flow: column wrap; 
+}
+
+.form-cadastro-placa input{
+  padding: 5px;
+}
+
+.btn-container{
+  margin-inline: auto;
+}
+
+.btn-container button{
+  background-color: crimson;
+  font-size: 20px;
+  padding: 8px;
+  color: white;
+  font-weight: 700;
+  border: none;
+  border-radius: .5rem;
+  transition: .2s ease-in;
+}
+
+.btn-container button:hover{
+  background-color: rgb(255, 0, 51);
 }
